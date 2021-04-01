@@ -6,9 +6,10 @@
   :license  "Specify license here"
   :version "0.0.1"
   :serial t
-  :depends-on (#:fiveam)
+  :depends-on (#:cl-ppcre #:fiveam)
   :components ((:file "package")
                (:file "day1")
+               (:file "day2")
                (:file "utils"))
   :in-order-to ((test-op (test-op #:advent2015/test))))
 
