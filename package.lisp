@@ -1,0 +1,11 @@
+;;;; package.lisp
+
+(defpackage #:advent2015
+  (:use #:cl)
+  (:export day1/solution1
+           day1/solution2))
+
+(defpackage #:advent2015/test
+  (:use #:cl
+        #:advent2015
+        #:fiveam))
