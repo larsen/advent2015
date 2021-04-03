@@ -19,3 +19,7 @@
   (is (= (advent2015:day4/solution1) 346386))
   ; SLOW (is (= (advent2015:day4/solution2) 9958218))
   )
+
+(test day5
+  (is (= (advent2015:day5/solution1) 258))
+  (is (= (advent2015:day5/solution2) 53)))
