@@ -12,7 +12,7 @@
 (defun count-bytes-in-strings (bytes)
   (count-if-not (lambda (c) (= c 10)) bytes))
 
-(defun length-escaped (bytes)
+(defun length-unescaped (bytes)
   (loop with char-counter = 0
         with pos = 0
         while (< pos (length bytes))
@@ -29,7 +29,7 @@
 (defun escaped-sequences-length (bytes)
   (reduce #'+ (mapcar (lambda (s)
                         (if s
-                          (length-escaped
+                          (length-unescaped
                            (subseq s 1 (- (length s) 1)))
                           0))
                       (split-sequence 10 bytes))))
