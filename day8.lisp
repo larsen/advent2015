@@ -26,7 +26,7 @@
            (incf char-counter)
         finally (return char-counter)))
 
-(defun escaped-sequences-length (bytes)
+(defun unescaped-sequences-length (bytes)
   (reduce #'+ (mapcar (lambda (s)
                         (if s
                           (length-unescaped
@@ -37,7 +37,7 @@
 (defun day8/solution1 ()
   (let* ((literals-as-bytes (read-string-literals-as-bytes)))
     (- (count-bytes-in-strings literals-as-bytes)
-       (escaped-sequences-length literals-as-bytes))))
+       (unescaped-sequences-length literals-as-bytes))))
 
 (defun day8/solution2 ()
   )
