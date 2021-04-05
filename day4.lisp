@@ -20,6 +20,5 @@
   (loop for suffix from 0
         until (right-suffix suffix
                             *adventcoins-secret-key*
-                            :hash-prefix "^000000"
-                            )
+                            :hash-prefix "^000000")
         finally (return suffix)))
