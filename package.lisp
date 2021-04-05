@@ -1,7 +1,10 @@
 ;;;; package.lisp
 
 (defpackage #:advent2015
-  (:use #:cl #:cl-ppcre #:org.tfeb.hax.memoize #:alexandria)
+  (:use #:cl #:cl-ppcre
+        #:org.tfeb.hax.memoize
+        #:split-sequence
+        #:alexandria)
   (:export day1/solution1
            day1/solution2
 
@@ -21,7 +24,9 @@
            day6/solution2
 
            day7/solution1
-           day7/solution2))
+           day7/solution2
+
+           day8/solution1))
 
 (defpackage #:advent2015/test
   (:use #:cl

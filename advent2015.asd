@@ -6,7 +6,7 @@
   :license  "Specify license here"
   :version "0.0.1"
   :serial t
-  :depends-on (#:cl-ppcre #:alexandria #:md5 #:memoize #:fiveam)
+  :depends-on (#:cl-ppcre #:alexandria #:md5 #:memoize #:split-sequence #:fiveam)
   :components ((:file "package")
                (:file "utils")
                (:file "day1")
@@ -15,7 +15,8 @@
                (:file "day4")
                (:file "day5")
                (:file "day6")
-               (:file "day7"))
+               (:file "day7")
+               (:file "day8"))
   :in-order-to ((test-op (test-op #:advent2015/test))))
 
 (asdf:defsystem #:advent2015/test
