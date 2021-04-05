@@ -27,3 +27,7 @@
 (test day6
   (is (= (advent2015:day6/solution1) 569999))
   (is (= (advent2015:day6/solution2) 17836115)))
+
+(test day7
+  (is (= (advent2015:day7/solution1) 16076))
+  (is (= (advent2015:day7/solution2) 2797)))

@@ -1,7 +1,7 @@
 ;;;; package.lisp
 
 (defpackage #:advent2015
-  (:use #:cl #:cl-ppcre #:alexandria)
+  (:use #:cl #:cl-ppcre #:org.tfeb.hax.memoize #:alexandria)
   (:export day1/solution1
            day1/solution2
 
@@ -18,7 +18,10 @@
            day5/solution2
 
            day6/solution1
-           day6/solution2))
+           day6/solution2
+
+           day7/solution1
+           day7/solution2))
 
 (defpackage #:advent2015/test
   (:use #:cl
