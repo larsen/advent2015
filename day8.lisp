@@ -39,5 +39,26 @@
     (- (count-bytes-in-strings literals-as-bytes)
        (unescaped-sequences-length literals-as-bytes))))
 
+(defun length-escaped (bytes)
+  (loop with char-counter = 0
+        with pos = 0
+        while (<= pos (- (length bytes) 1))
+        do (case (nth pos bytes)
+             ;; " needs two chars to be encoded
+             (34 (incf char-counter 2))
+             ;; \ needs two chars to be encoded
+             (92 (incf char-counter 2))
+             (t  (incf char-counter)))
+           (incf pos)
+        ;; at the end, add two characters to represent the quotes
+        finally (return (+ 2 char-counter))))
+
+(defun escaped-sequences-length (bytes)
+    (reduce #'+ (mapcar (lambda (s)
+                        (if s (length-escaped s) 0))
+                      (split-sequence 10 bytes))))
+
 (defun day8/solution2 ()
-  )
+  (let* ((literals-as-bytes (read-string-literals-as-bytes)))
+    (- (escaped-sequences-length literals-as-bytes)
+       (count-bytes-in-strings literals-as-bytes))))
