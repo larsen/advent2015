@@ -18,7 +18,8 @@
                (:file "day7")
                (:file "day8")
                (:file "day9")
-               (:file "day10"))
+               (:file "day10")
+               (:file "day11"))
   :in-order-to ((test-op (test-op #:advent2015/test))))
 
 (asdf:defsystem #:advent2015/test

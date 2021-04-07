@@ -43,3 +43,7 @@
 (test day10
   (is (= (advent2015:day10/solution1) 329356))
   (is (= (advent2015:day10/solution2) 4666278)))
+
+(test day11
+  (is (string= (advent2015:day11/solution1) "hepxxyzz"))
+  (is (string= (advent2015:day11/solution2) "heqaabcc")))
