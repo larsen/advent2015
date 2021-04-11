@@ -4,7 +4,8 @@
   (:use #:cl #:cl-ppcre
         #:org.tfeb.hax.memoize
         #:split-sequence
-        #:alexandria)
+        #:alexandria
+        #:jonathan)
   (:export day1/solution1
            day1/solution2
 
@@ -36,7 +37,9 @@
            day10/solution2
 
            day11/solution1
-           day11/solution2))
+           day11/solution2
+
+           day12/solution1))
 
 (defpackage #:advent2015/test
   (:use #:cl
