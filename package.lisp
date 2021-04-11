@@ -43,7 +43,9 @@
            day12/solution2
 
            day13/solution1
-           day13/solution2))
+           day13/solution2
+
+           day14/solution1))
 
 (defpackage #:advent2015/test
   (:use #:cl
