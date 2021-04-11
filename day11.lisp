@@ -48,7 +48,7 @@ represented as a boolean."
 (defvar +big-re+)
 
 (defun day11/solution1 ()
-  (unless +big-re+
+  (unless (boundp '+big-re+)
     (setf +big-re+ (big-re)))
   (loop for password = "hepxcrrq"
         do (setf password (inc-password password))
