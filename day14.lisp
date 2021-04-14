@@ -14,16 +14,8 @@
                      (list speed flying-time rest-time)))
           finally (return reindeers))))
 
-(let ((last-returned-value))
-  (defun flip-flop (value1 value2)
-    (unless last-returned-value
-      (setf last-returned-value value1))
-    (setf last-returned-value
-          (if (equal last-returned-value value1)
-              value2
-              value1))))
-
 (defun reindeer-flying-or-resting (elapsed-time flying-time rest-time)
+  (reset-flip-flop)
   (loop with acc = 0
         for state = (flip-flop 'flying 'resting)
         do (incf acc (if (eql state 'resting)
@@ -50,4 +42,26 @@
           finally (return (apply #'max (hash-table-values reindeers-distance))))))
 
 (defun day14/solution2 ()
-  )
+  (let ((reindeers (read-reindeers))
+        (reindeers-distance (make-hash-table :test #'equal))
+        (reindeers-points (make-hash-table :test #'equal)))
+    (loop for r being the hash-keys of reindeers
+          do (setf (gethash r reindeers-distance) 0)
+             (setf (gethash r reindeers-points) 0))
+    ;; Race!
+    (loop for elapsed from 1 to 2503
+          do (loop for r being the hash-keys of reindeers
+                   do (destructuring-bind (speed flying-time rest-time)
+                          (gethash r reindeers)
+                        (incf (gethash r reindeers-distance)
+                              (if (eql (reindeer-flying-or-resting
+                                        elapsed flying-time rest-time)
+                                       'flying)
+                                  speed
+                                  0))))
+             ;; Point attribution
+             (loop with max-distance = (apply #'max (hash-table-values reindeers-distance))
+                   for r being the hash-keys of reindeers-points
+                   do (if (= max-distance (gethash r reindeers-distance))
+                          (incf (gethash r reindeers-points))))
+          finally (return (apply #'max (hash-table-values reindeers-points))))))

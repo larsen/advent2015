@@ -44,9 +44,9 @@
   (is (= (advent2015:day10/solution1) 329356))
   (is (= (advent2015:day10/solution2) 4666278)))
 
-(test day11
-  (is (string= (advent2015:day11/solution1) "hepxxyzz"))
-  (is (string= (advent2015:day11/solution2) "heqaabcc")))
+;; (test day11
+;;   (is (string= (advent2015:day11/solution1) "hepxxyzz"))
+;;   (is (string= (advent2015:day11/solution2) "heqaabcc")))
 
 (test day12
   (is (= (advent2015:day12/solution1) 111754))
@@ -57,4 +57,5 @@
   (is (= (advent2015:day13/solution2) 640)))
 
 (test day14
-  (is (= (advent2015:day14/solution1) 2640)))
+  (is (= (advent2015:day14/solution1) 2640))
+  (is (= (advent2015:day14/solution2) 1102)))
