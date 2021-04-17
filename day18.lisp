@@ -59,5 +59,30 @@
         do (setf lights-configuration (next-iteration lights-configuration))
         finally (return (day18/count-lights-on lights-configuration))))
 
+(defun next-iteration-stuck-corner (lights-configuration &key (side 100))
+  (let ((new-configuration (make-array (list side side) :initial-element :inactive)))
+    (loop for y from 0 below side
+          do (loop for x from 0 below side
+                   for neighbours = (count-neighbours lights-configuration x y)
+                   do (if (or (and (= x 0) (= y 0))
+                              (and (= x 99) (= y 0))
+                              (and (= x 0) (= y 99))
+                              (and (= x 99) (= y 99)))
+                          (setf (aref new-configuration x y) :active)
+                          (if (eql :active (aref lights-configuration x y))
+                              (setf (aref new-configuration x y)
+                                    (if (or (= 2 neighbours)
+                                            (= 3 neighbours))
+                                        :active
+                                        :inactive))
+                              (setf (aref new-configuration x y)
+                                    (if (= 3 neighbours)
+                                        :active
+                                        :inactive)))))
+          finally (return new-configuration))))
+
 (defun day18/solution2 ()
-  )
+    (loop with lights-configuration = (read-lights-configuration)
+        repeat 100
+        do (setf lights-configuration (next-iteration-stuck-corner lights-configuration))
+        finally (return (day18/count-lights-on lights-configuration))))
