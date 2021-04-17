@@ -10,3 +10,7 @@
               value1)))
   (defun reset-flip-flop ()
     (setf last-returned-value nil)))
+
+(defun remove-nth (n lst)
+  (append (subseq lst 0 (- n 1))
+          (subseq lst n (length lst))))
