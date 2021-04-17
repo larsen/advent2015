@@ -5,7 +5,8 @@
         #:org.tfeb.hax.memoize
         #:split-sequence
         #:alexandria
-        #:jonathan)
+        #:jonathan
+        #:magicl)
   (:export day1/solution1
            day1/solution2
 
@@ -46,7 +47,13 @@
            day13/solution2
 
            day14/solution1
-           day14/solution2))
+           day14/solution2
+
+           day15/solution1
+           day15/solution2
+
+           day16/solution1
+           day16/solution2))
 
 (defpackage #:advent2015/test
   (:use #:cl
