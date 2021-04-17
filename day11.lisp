@@ -20,8 +20,6 @@ represented as a boolean."
         until (not carry)
         finally (return password)))
 
-
-
 (defun valid-password-p (password)
   (and
    ;; must include one increasing straight of at least three letters
@@ -32,6 +30,7 @@ represented as a boolean."
    ;; letters
    (multiple-value-bind (matched-string letters)
        (scan-to-strings "(.)\\1.*(.)\\2" password)
+     (declare (ignore matched-string))
      (if letters
        (not (string= (aref letters 0)
                      (aref letters 1)))
