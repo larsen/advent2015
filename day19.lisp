@@ -23,7 +23,6 @@
         (read-replacements-and-molecule)
       (loop for substring being the hash-keys of replacements
             do (loop for possible-replacement in (gethash substring replacements)
-                     ;; Ora bisogna fare tutte le sostituzioni possibili
                      do (do-matches (s e substring molecule)
                           (incf (gethash (replace-substr molecule s e possible-replacement)
                                          resulting-molecules 0))))
