@@ -17,24 +17,6 @@
     (values replacements
             molecule)))
 
-(defun replace-substr (str start end substr)
-  "Returns a new a string based on STR, where the characters from
-START to END have been replaced by SUBSTR."
-  (coerce
-   (loop with replaced-p = nil
-         for idx from 0
-         for c across str
-         ;; Can't I do something better?
-         if (and (>= idx start)
-                 (< idx end)
-                 (not replaced-p))
-           do (setf replaced-p t)
-           and append (coerce substr 'list)
-         if (or (< idx start)
-                (>= idx end))
-           collect c)
-   'string))
-
 (defun day19/solution1 ()
   (let ((resulting-molecules (make-hash-table :test #'equal)))
     (multiple-value-bind (replacements molecule)
