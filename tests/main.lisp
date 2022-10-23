@@ -79,3 +79,6 @@
 
 (test day19
   (is (= (advent2015:day19/solution1) 518)))
+
+(test day20
+  (is (= (advent2015:day20/solution1) 831600)))

@@ -27,7 +27,8 @@
                (:file "day16")
                (:file "day17")
                (:file "day18")
-               (:file "day19"))
+               (:file "day19")
+               (:file "day20"))
   :in-order-to ((test-op (test-op #:advent2015/test))))
 
 (asdf:defsystem #:advent2015/test
@@ -36,4 +37,3 @@
   :components ((:module "tests"
                 :components ((:file "main"))))
   :perform (test-op (op _) (symbol-call :fiveam :run-all-tests)))
-
